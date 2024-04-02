@@ -1,0 +1,14 @@
+.logo {
+  height: 200px;
+  width: 200px;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.logout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
