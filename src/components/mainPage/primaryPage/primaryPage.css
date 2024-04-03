@@ -1,0 +1,16 @@
+.trailerBg{
+    width: 100%;
+}
+.details{
+    position: absolute;
+    color: white;
+    margin-right: 800px;
+    margin-top: 300px;
+    margin-left: 100px;
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) , black 100%);
+    padding: 10px;
+}
+
+.name {
+    font-size: 100px;
+}

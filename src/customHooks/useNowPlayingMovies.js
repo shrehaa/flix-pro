@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { GET_NOW_PLAYING_MOVIE } from "../api/api";
 import { options } from "../utils/constants";
 import { addnowPlayingMovies } from "../utils/movieSlice";
