@@ -9,17 +9,16 @@ import {
 } from "firebase/auth";
 
 import { addUser, removeUser } from "../../utils/userSlice";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Header from "../Header/header";
 
 const Login = () => {
-  const [toggleForm, setToggleForm] = useState(0);
+  const [toggleForm, setToggleForm] = useState(1);
   const [errMsg, seterrmsg] = useState("");
 
   const email = useRef();
   const name = useRef();
   const password = useRef();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const validation = (email, password) => {
@@ -62,7 +61,6 @@ const Login = () => {
               dispatch(
                 addUser({ uid: uid, displayName: displayName, email: email })
               );
-              navigate("/browse");
             })
             .catch((error) => {
                console.log(error)
@@ -89,7 +87,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -104,9 +101,10 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="left-bg">
-        <div className="header">
+        {/* <div className="header">
           <img src={logo} alt="logo" className="logo" />
-        </div>
+        </div> */}
+        <Header/>
 
         {toggleForm ? (
           <div className="form" onSubmit={(e) => handleSubmit(e)}>

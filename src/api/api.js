@@ -1,0 +1,1 @@
+export const GET_NOW_PLAYING_MOVIE = 'https://api.themoviedb.org/3/movie/now_playing?page=1'
