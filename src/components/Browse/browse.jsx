@@ -1,9 +1,9 @@
 import Header from "../Header/header";
 import "./browse.css";
 import useNowPlayingMovies from "../../customHooks/useNowPlayingMovies";
-import useMovieTrailer from "../../customHooks/useMovieTrailer";
 import PrimaryPage from "../mainPage/primaryPage/primaryPage";
 import { useSelector } from "react-redux";
+import SecondaryPage from "../mainPage/secondaryPage/secondaryPage";
 
 const Browse = () => {
   useNowPlayingMovies();
@@ -17,6 +17,8 @@ const Browse = () => {
     <div className="browse-container">
       <Header />
      {id && <PrimaryPage id={id} details={movieList.nowPlayingMovies[0]} />}
+     <SecondaryPage/>
+     
     </div>
   );
 };
