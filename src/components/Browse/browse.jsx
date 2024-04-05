@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import SecondaryPage from "../mainPage/secondaryPage/secondaryPage";
 import useTopratedMovies from "../../customHooks/useTopratedMovies";
 import useUpcomingMovies from "../../customHooks/useUpcomingMovies";
+import GptSearch from "../gptSearch/gptSearch";
 
 const Browse = () => {
   useNowPlayingMovies();
@@ -15,15 +16,24 @@ const Browse = () => {
   useUpcomingMovies();
 
   const movieList = useSelector((store) => store.movies);
+  const gptView = useSelector((store) => store.gpt.toggleGPTvalue);
   if (!movieList) return;
   const id = movieList.nowPlayingMovies && movieList.nowPlayingMovies[0].id;
+  console.log(gptView, "val");
 
   return (
     <div className="browse-container">
       <Header />
-     {id && <PrimaryPage id={id} details={movieList.nowPlayingMovies[1]} />}
-     <SecondaryPage/>
-     
+      {gptView === true ? (
+        <GptSearch />
+      ) : (
+        <div>
+          {id && (
+            <PrimaryPage id={id} details={movieList.nowPlayingMovies[1]} />
+          )}
+          <SecondaryPage />
+        </div>
+      )}
     </div>
   );
 };

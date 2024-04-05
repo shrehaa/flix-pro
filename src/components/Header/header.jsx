@@ -7,11 +7,26 @@ import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../../utils/userSlice";
+import { toggleGPT } from "../../utils/gptSlice";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import React from "react";
+import {languages} from '../../languageconst'
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useSelector((store) => console.log(store, "store"));
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const user = useSelector((store) => store.user);
+  const gptView = useSelector((store) => store.gpt.toggleGPTvalue);
   const logOut = () => {
     signOut(auth)
       .then(() => {
@@ -36,20 +51,63 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleToggleGPT = () => {
+    dispatch(toggleGPT());
+  };
+
   return (
     <div className="header">
       <img className="logo" src={logo} alt="logo" />
 
       {user && (
         <div className="logout">
-          <p style={{ color: "white" }}>
-            Hello, {user && user.displayName} ! ❤️{" "}
+          <p style={{ color: "white", margin: "30px" }}>
+            Hello, {user && user.displayName} ! ❤️
           </p>
+          {gptView === true && (
+            <div>
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+                sx={{color:"white"}}
+              >
+                Language
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                {languages && languages.map((item)=>{
+                  return <MenuItem key={item.identifier} onClick={handleClose}>{item.name}</MenuItem>
+                })}
+              </Menu>
+            </div>
+          )}
           <Button
             sx={{
               margin: "60px",
+              backgroundColor: "rebeccapurple",
+              cursor: "pointer",
+              "&:hover": { backgroundColor: "rebeccapurple" },
+            }}
+            variant="contained"
+            onClick={handleToggleGPT}
+          >
+            GPT SEARCH
+          </Button>
+          <Button
+            sx={{
+              marginRight: "60px",
               backgroundColor: "#CC0000",
-              cursor:"pointer",
+              cursor: "pointer",
               "&:hover": { backgroundColor: "#CC0000" },
             }}
             variant="contained"
