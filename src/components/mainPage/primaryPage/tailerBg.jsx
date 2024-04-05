@@ -8,7 +8,8 @@ const TrailerBg = () => {
   return (
     <div className="trailerBg">
       <iframe
-        style={{ width: "100%", aspectRatio: "16:9", height: "100vh" }}
+        className="iframe"
+        //style={{ width: "100%", aspectRatio:"16/9", height: "100vh" }}
         src={
           "https://www.youtube.com/embed/" +
           trailerId +

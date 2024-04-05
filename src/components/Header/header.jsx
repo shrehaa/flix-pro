@@ -49,6 +49,7 @@ const Header = () => {
             sx={{
               margin: "60px",
               backgroundColor: "#CC0000",
+              cursor:"pointer",
               "&:hover": { backgroundColor: "#CC0000" },
             }}
             variant="contained"

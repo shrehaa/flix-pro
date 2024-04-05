@@ -17,7 +17,6 @@ const useMovieTrailer = (id) => {
     if (!trailer) {
       trailer = moviesVid.results && moviesVid.results[0];
     }
-    console.log(trailer, "trailer");
     dispatch(addMovieTrailer(trailer));
   };
 

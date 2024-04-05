@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import TrailerBg from "./tailerBg";
 import useMovieTrailer from "../../../customHooks/useMovieTrailer";
 import "./primaryPage.css";
@@ -6,9 +7,9 @@ import Button from "@mui/material/Button";
 
 const PrimaryPage = ({ id, details }) => {
   useMovieTrailer(id);
-  console.log(details, "deets")
   return (
-    <div>
+    <div className="primary-container">
+     
       <div className="details">
         <h1>{details.original_title}</h1>
         <p>
@@ -47,6 +48,7 @@ const PrimaryPage = ({ id, details }) => {
           </Button>
         </Stack>
       </div>
+     
       <TrailerBg />
     </div>
   );
