@@ -19,7 +19,6 @@ const Browse = () => {
   const gptView = useSelector((store) => store.gpt.toggleGPTvalue);
   if (!movieList) return;
   const id = movieList.nowPlayingMovies && movieList.nowPlayingMovies[0].id;
-  console.log(gptView, "val");
 
   return (
     <div className="browse-container">

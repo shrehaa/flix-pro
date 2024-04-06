@@ -1,19 +1,16 @@
 import { Button } from "@mui/material";
 import "./search.css";
+import { useSelector } from "react-redux";
+import { lang } from "../../../languageconst";
+
 const Search = () => {
+  const languageSelected = useSelector((store) => store.gpt.gptLanguage);
   return (
     <div className="searchbox">
       <input
         className="placehold"
-        placeholder={"What would you like to watch today?"}
+        placeholder={lang[languageSelected].placeholder}
         name="search"
-        // style={{
-        //   width: "60%",
-        //   borderRadius: "30px",
-        //   height: "45%",
-        //   textAlign: "center",
-        //  marginRight:"30px"
-        // }}
       />
       <Button
         variant="contained"
@@ -25,7 +22,7 @@ const Search = () => {
           "&:hover": { backgroundColor: "rebeccapurple" },
         }}
       >
-        Search
+        {lang[languageSelected].search}
       </Button>
     </div>
   );

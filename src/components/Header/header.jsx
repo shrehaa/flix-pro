@@ -7,23 +7,29 @@ import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../../utils/userSlice";
-import { toggleGPT } from "../../utils/gptSlice";
+import { toggleGPT, setLanguage } from "../../utils/gptSlice";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React from "react";
-import {languages} from '../../languageconst'
+import { languages } from "../../languageconst";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useSelector((store) => console.log(store, "store"));
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [lang, setLang] = React.useState("Language");
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (name, identifier) => {
     setAnchorEl(null);
+
+    if (typeof name === "string" && typeof identifier === "string") {
+      setLang(name);
+      dispatch(setLanguage(identifier));
+    }
   };
   const user = useSelector((store) => store.user);
   const gptView = useSelector((store) => store.gpt.toggleGPTvalue);
@@ -72,9 +78,9 @@ const Header = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
-                sx={{color:"white"}}
+                sx={{ color: "white" }}
               >
-                Language
+                {lang}
               </Button>
               <Menu
                 id="basic-menu"
@@ -85,9 +91,17 @@ const Header = () => {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                {languages && languages.map((item)=>{
-                  return <MenuItem key={item.identifier} onClick={handleClose}>{item.name}</MenuItem>
-                })}
+                {languages &&
+                  languages.map((item) => {
+                    return (
+                      <MenuItem
+                        key={item.identifier}
+                        onClick={() => handleClose(item.name, item.identifier)}
+                      >
+                        {item.name}
+                      </MenuItem>
+                    );
+                  })}
               </Menu>
             </div>
           )}
@@ -101,7 +115,7 @@ const Header = () => {
             variant="contained"
             onClick={handleToggleGPT}
           >
-            GPT SEARCH
+            {gptView?"Home Page":"GPT Search"}
           </Button>
           <Button
             sx={{
