@@ -1,12 +1,13 @@
 import Search from "./GPTSearchBar/search";
 import Page from "./GPTSearchPage/page";
-import './gptSearch.css';
+import "./gptSearch.css";
 
 const GptSearch = () => {
-  console.log("hi")
   return (
     <div className="gpt-container">
-      <Search />
+      <div className="bar">
+        <Search />
+      </div>
       <Page />
     </div>
   );

@@ -8,3 +8,4 @@ export const GET_UPCOMING_MOVIE =
   "https://api.themoviedb.org/3/movie/upcoming?page=1";
 export const GET_MOVIE_VIDEO = (id) =>
   `https://api.themoviedb.org/3/movie/${id}/videos`;
+export const GET_SEARCH_MOVIE = (name) => `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&language=en-US&page=1`
