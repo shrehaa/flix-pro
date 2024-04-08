@@ -5,7 +5,7 @@ import { auth } from "../../utils/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile
+  updateProfile,
 } from "firebase/auth";
 
 import { addUser, removeUser } from "../../utils/userSlice";
@@ -63,7 +63,7 @@ const Login = () => {
               );
             })
             .catch((error) => {
-               console.log(error)
+              console.log(error);
             });
 
           // ...
@@ -104,7 +104,7 @@ const Login = () => {
         {/* <div className="header">
           <img src={logo} alt="logo" className="logo" />
         </div> */}
-        <Header/>
+        <Header />
 
         {toggleForm ? (
           <div className="form" onSubmit={(e) => handleSubmit(e)}>
@@ -137,17 +137,6 @@ const Login = () => {
               {errMsg}
               <div className="input-box">
                 <input type="submit" className="submit" value="Sign In" />
-              </div>
-              <div className="two-col">
-                <div className="one">
-                  <input type="checkbox" id="login-check" />
-                  <label for="login-check"> Remember Me</label>
-                </div>
-                <div className="two">
-                  <label>
-                    <a href="#">Forgot password?</a>
-                  </label>
-                </div>
               </div>
             </form>
           </div>
