@@ -6,5 +6,5 @@ export const options = {
   },
 };
 
- export const OPEN_AI_KEY = import.meta.env.VITE_REACT_OPEN_AI_KEY;
-console.log(import.meta.env, "key")
+export const OPEN_AI_KEY = import.meta.env.VITE_REACT_OPEN_AI_KEY;
+console.log(import.meta.env, "key");

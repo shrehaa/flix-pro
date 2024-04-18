@@ -9,8 +9,8 @@ const CardList = ({ movies, title }) => {
       <p style={{ color: "white" , fontSize:"30px", paddingLeft:"20px", paddingTop:"10px"}}>{title}</p>
       <div style={{ display: "flex", overflowX:"auto"}}>
         {movies &&
-          movies.map((item, idx) => {
-            return <Card key={item.id} poster={item.poster_path} />;
+          movies.map((item, idx) => {           
+            return <Card item={item} key={item.id} />;
           })}
       </div>
     </div>

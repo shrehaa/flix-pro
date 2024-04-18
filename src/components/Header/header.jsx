@@ -63,7 +63,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <img className="logo" src={logo} alt="logo" />
+      <img className="logo" src={"https://i.postimg.cc/CKXBv04g/flix.png"} alt="logo" />
 
       {user && (
         <div className="logout">
