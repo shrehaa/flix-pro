@@ -1,6 +1,6 @@
 .login-container {
   display: flex;
-  background-image: url("../../assets/bg.jpg");
+  background-image: url("https://u.cubeupload.com/shreha111/freepikexport2024042.jpeg");
   background-size: 100%;
   height: 100%;
   width: 100%;
@@ -13,10 +13,6 @@
 .login-container .left-bg {
   width: 70%;
 }
-/* .login-container .left-bg .header {
-  display: flex;
-  justify-content: center;
-} */
 .login-container .left-bg .logo {
   height: 160px;
 }
@@ -42,8 +38,6 @@
 .login-container .left-bg .form .form-main {
   height: 450px;
   width: 500px;
-  /* background-color: black;
-    opacity: 0.1; */
 }
 .input-box .input-field {
   width: 100%;
