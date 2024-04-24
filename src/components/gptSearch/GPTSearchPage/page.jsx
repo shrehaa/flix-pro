@@ -24,9 +24,8 @@ const Page = () => {
       <Grid container spacing={2}>
         {gptSearchResult &&
           gptSearchResult.map((item) => {
-            console.log(item, "item");
             return (
-              <Grid item xs={4}>
+              <Grid item xs={2} sx={{backgroundColor:"black"}}>
                 <Item>
                   <Card item={item.results[0]} key={item.id} />
                 </Item>

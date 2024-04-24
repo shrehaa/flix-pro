@@ -24,7 +24,7 @@ const Body = () => {
   ]);
   
   return (
-    <div>
+    <div style={{overflowX:"hidden" }}>
       <RouterProvider router={router} />
     </div>
   );

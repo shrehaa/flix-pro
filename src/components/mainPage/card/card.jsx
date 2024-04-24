@@ -6,7 +6,7 @@ import { useState } from "react";
 import Trailer from "../../Trailer/trailer";
 
 const Card = ({ item }) => {
-  const url = `${POSTER_URL}${item.poster_path}`;
+  const url = `${POSTER_URL}${item && item.poster_path}`;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

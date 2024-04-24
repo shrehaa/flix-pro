@@ -8,7 +8,9 @@ const GptSearch = () => {
       <div className="bar">
         <Search />
       </div>
+      <div>
       <Page />
+      </div>
     </div>
   );
 };

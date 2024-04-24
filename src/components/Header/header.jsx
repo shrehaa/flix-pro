@@ -16,7 +16,6 @@ import { languages } from "../../languageconst";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  useSelector((store) => console.log(store, "store"));
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [lang, setLang] = React.useState("Language");
   const open = Boolean(anchorEl);
