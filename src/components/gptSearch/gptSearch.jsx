@@ -4,11 +4,11 @@ import "./gptSearch.css";
 
 const GptSearch = () => {
   return (
-    <div className="gpt-container">
+    <div  className="gpt-container">
       <div className="bar">
         <Search />
       </div>
-      <div style={{padding:"10px", height:"140%"}}>
+      <div style={{padding:"10px"}}>
       <Page />
       </div>
     </div>
