@@ -8,7 +8,7 @@ const GptSearch = () => {
       <div className="bar">
         <Search />
       </div>
-      <div>
+      <div style={{padding:"10px", height:"140%"}}>
       <Page />
       </div>
     </div>

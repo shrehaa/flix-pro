@@ -20,13 +20,13 @@ const Page = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <Box sx={{ flexGrow: 1, margin: "50px", overflowY:"scroll" }}>
+    <Box sx={{ flexGrow: 1, margin: "50px", overflowY:"auto" }}>
       <Grid container spacing={2}>
         {gptSearchResult &&
           gptSearchResult.map((item) => {
             return (
-              <Grid item xs={2} sx={{backgroundColor:"black", height:"250px"}}>
-                <Item>
+              <Grid item xs={2} sx={{backgroundColor:"black"}}>
+                <Item sx={{boxShadow:"none"}}>
                   <Card item={item.results[0]} key={item.id} />
                 </Item>
               </Grid>
