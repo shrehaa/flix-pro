@@ -18,7 +18,7 @@ const Browse = () => {
   const movieList = useSelector((store) => store.movies);
   const gptView = useSelector((store) => store.gpt.toggleGPTvalue);
   if (!movieList) return;
-  const id = movieList.nowPlayingMovies && movieList.nowPlayingMovies[0].id;
+  const id = movieList.nowPlayingMovies && movieList.nowPlayingMovies[3].id;
 
   return (
     <div className="browse-container">
@@ -28,7 +28,7 @@ const Browse = () => {
       ) : (
         <div>
           {id && (
-            <PrimaryPage id={id} details={movieList.nowPlayingMovies[0]} />
+            <PrimaryPage id={id} details={movieList.nowPlayingMovies[3]} />
           )}
           <SecondaryPage />
         </div>
