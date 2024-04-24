@@ -20,7 +20,7 @@ const Page = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <Box sx={{ flexGrow: 1, margin: "50px" }}>
+    <Box sx={{ flexGrow: 1, margin: "50px", overflowY:"scroll" }}>
       <Grid container spacing={2}>
         {gptSearchResult &&
           gptSearchResult.map((item) => {
